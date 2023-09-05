@@ -1,16 +1,23 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
-const routes = require('./routes/contactRoutes.js');
-const errorHandler = require('./middleware/errorHandler.js');
 
-app = express();
+const errorHandler = require('./middleware/errorHandler.js');
+const dbConnection = require('./config/dbConnection.js');
+const userRoutes = require('./routes/userRoutes.js');
+const contactRoutes = require('./routes/contactRoutes.js');
+
+app = express()
+dbConnection()
+
+//middlewares
 app.use(express.json())
+app.use('/api/contacts', contactRoutes)
+app.use('/api/users', userRoutes)
+app.use(errorHandler)
 
 const port = process.env.PORT || 5000;
 
-app.use('/api/contacts', routes)
 
-app.use(errorHandler)
 
 app.listen(port, () => {
     console.log(`server running on ${port}`);
