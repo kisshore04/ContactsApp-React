@@ -4,12 +4,15 @@ import '../Styles/Registerpage.css'
 import user_icon from '../Assets/RegisterAssets/user-interface.png'
 import email_icon from '../Assets/RegisterAssets/email.png'
 import password_icon from './../Assets/RegisterAssets/lock.png'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Register() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
+
     const registerUser = async (e) => {
         e.preventDefault();
         try {
@@ -25,9 +28,10 @@ function Register() {
             })
             // console.log(username, email, password)
             setIsLoading(false)
-            console.log(response.data.username);
             let resdata = response.data;
+            console.log(resdata.data.username);
             alert(`User:${resdata.data.username} registered successfully!`)
+            navigate('/')
         } catch (error) {
             console.log(error);
             setIsLoading(false)
@@ -83,6 +87,13 @@ function Register() {
                 </div>
                 <div className='registerContainer'>
                     {!isLoading ? <button className='registerButton' type='submit'>Register</button> : <div className='registerButton'>loading.. </div>}
+                    {/* <div>Already have an account? <Link to={"/"}><span>Click here </span></Link> to Log in</div> */}
+                </div>
+                <div className='registerContainer'>
+                    Already have an account?
+                    <Link to={"/"} style={{ textDecoration: 'none' }}>
+                        <span> Click here </span>
+                    </Link>  to Log in
                 </div>
             </form>
         </div>

@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(to bottom, #000080, #00008B, #0000cd);
+  /* background: linear-gradient(to bottom, #000080, #00008B, #0000cd); */
 }
 
 code {

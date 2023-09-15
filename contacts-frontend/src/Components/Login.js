@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import '../Styles/Loginpage.css'
 import email_icon from '../Assets/RegisterAssets/email.png'
 import password_icon from './../Assets/RegisterAssets/lock.png'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [nouser, setNouser] = useState(false)
+    const [nouser, setNouser] = useState(true)
 
     const userLogin = (e) => {
         e.preventDefault();
@@ -57,8 +58,9 @@ const Login = () => {
                     {!isLoading ? <button className='registerButton' type='submit'>Log in</button> : <div className='registerButton'>loading.. </div>}
                     {/* {nouser ? <div className='registerIndicater'>Don't have an account? <span>Click here</span> to register!</div> : <div></div>} */}
                 </div>
-                <div lassName='registerContainer'>
-                    {nouser ? <div className='registerIndicater'>Don't have an account? <span>Click here</span> to register!</div> : <div></div>}
+                <div className='registerContainer'>
+                    {/* {nouser ? <div className='registerIndicater'>Don't have an account?<Link to={'/register'} style={{ textDecoration: 'none' }}> <span>Click here </span></Link>to register!</div> : <div></div>} */}
+                    <div className='registerIndicater'> Don't have an account?<Link to={'/register'} style={{ textDecoration: 'none' }}> <span>Click here </span> </Link> to register!</div>
                 </div>
             </form >
         </div >
