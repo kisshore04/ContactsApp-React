@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto;
+    margin-top: 60px;
+    /* overflow: hidden; */
+    /* margin-top: 250px; */
+    background: #fff;
+    padding-bottom: 30px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap:  9px;
+    margin-top: 30px;
+}
+
+.headerText{
+    font-weight: 700;
+    font-size: 30px;
+    color: #3c009d;
+}
+
+.underLine {
+    width : 71px;
+    height: 3px;
+    background: #3c009d;
+    border-radius: 7px;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    gap : 25px;
+}
+
+.input {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin : auto;
+    width : 480px;
+    height: 80px;
+    background: #dfdfdf;
+    border-radius: 16px;
+}
+
+.input h4{
+    margin: 0px 40px;
+    font-size : 19px
+}
+
+.input img{
+    width: 30px;
+    margin: 0px 30px;
+    /* font-size : 19px */
+} 
+
+.input input{
+    width: 400px;
+    height: 50px;
+    /* margin-left: 25px; */
+    background: transparent;
+    border : none;
+    outline : none;
+    color : #797979;
+    font-size: 19px;
+}
+
+.forgotPass {
+    padding-left: 77px;
+    margin-top: 20px;
+    font-size: 17px;
+    color : #797979;
+}
+
+.forgotPass span {
+    color: #3c009d ;
+    cursor: pointer;
+}
+
+.registerContainer {
+    display: flex;
+    justify-content: center;
+    margin : 30px auto;
+}
+
+.registerButton {
+    display : flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 13px;
+    width: 220px;
+    height: 49px;
+    color: #fff;
+    background-color: #3c009d;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 19px;
+}
+.registerIndicater {
+    padding-left: 138px;
+    margin-top: 20px;
+    font-size: 17px;
+    color : #797979;
+}
+.registerIndicater span{
+    color: #ce0000 ;
+    cursor: pointer;
+}
