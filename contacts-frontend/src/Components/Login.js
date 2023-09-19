@@ -2,20 +2,40 @@ import React, { useState } from 'react'
 import '../Styles/Loginpage.css'
 import email_icon from '../Assets/RegisterAssets/email.png'
 import password_icon from './../Assets/RegisterAssets/lock.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [nouser, setNouser] = useState(true)
+    const [token, setToken] = useState("")
+    const navigate = useNavigate();
+    // const [nouser, setNouser] = useState(true)
 
-    const userLogin = (e) => {
+    const userLogin = async (e) => {
         e.preventDefault();
         try {
-
+            // console.log(email, password)
+            setIsLoading(true)
+            const userValue = await axios.post('http://localhost:5001/api/users/login', {
+                email,
+                password
+            })
+            // console.log(userValue.data.accessToken);
+            const { accessToken } = userValue.data
+            setToken(accessToken)
+            if (token) {
+                navigate("/CurrentPage")
+                sessionStorage.setItem("authToken", token)
+            }
+            setIsLoading(false)
         } catch (error) {
-
+            // setIsLoading(true)
+            console.log("Log in failed")
+            // setIsLoading(false)
+        } finally {
+            setIsLoading(false)
         }
 
     }
